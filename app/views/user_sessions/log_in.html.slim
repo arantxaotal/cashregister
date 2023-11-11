@@ -3,7 +3,10 @@ html class="text-center pt-1 mb-5 pb-1"
     title = 'Cash Register'
   body
     .div  class="form-outline mb-4"
-      h1 = 'Beer Tap Counter'
+      h1 = 'Cash Register'
+    .div class="form-outline mb-4"
+      = link_to root_path, class: "btn btn-primary"
+        i.fa.fa-home.btn-xs
     row
       col
         div = form_for :user, url:user_sessions_path , method:'POST', html: { multipart: true }, authenticity_token: true, remote: true do |f|

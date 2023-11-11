@@ -2,9 +2,13 @@ html class="text-center pt-1 mb-5 pb-1"
 
   head
     title = 'Cash Register'
+
   body
     .div  class="form-outline mb-4"
       h1 = 'Cash Register'
+    .div class="form-outline mb-4"
+      = link_to  root_path, class: "btn btn-primary"
+        i.fa.fa-home.btn-xs
 
 
     row
@@ -29,3 +33,4 @@ html class="text-center pt-1 mb-5 pb-1"
 
           .div  class="form-outline mb-4"
             = f.submit 'Create', class: 'btn btn-primary'
+
