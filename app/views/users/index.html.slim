@@ -34,7 +34,7 @@ div class="form-outline mb-4" style="overflow: auto; height: 300px;"
           div = form_for @basket, url: edit_basket_path(@basket.id),method:'GET', html: { multipart: true }, authenticity_token: true, remote: true do |f|
             = hidden_field_tag :product_id, product.id
             td = number_field_tag :amount,  ProductBasket.where(basket_id:@basket.id,product_id:product.id).take.try(:amount), id:'amount_of_product_'+product.id.to_s
-            td = button_tag type: :submit, class: 'btn btn-primary' do
+            td = button_tag type: :submit, class: 'btn btn-primary', title: "Add to basket" do
                  = fa_icon 'plus'
 
 
@@ -50,6 +50,7 @@ div  style="overflow: auto; height: 300px;"
         th = "Products"
         th = "Prize"
         th = "Amount"
+        th = "Actions"
 
 
     tbody
@@ -58,6 +59,8 @@ div  style="overflow: auto; height: 300px;"
           td = product_basket.product.name
           td = BasketDomain.amount_prize(product_basket)
           td = product_basket.amount
+          td = link_to product_basket, data: { confirm: 'Are you sure?' }, method: :delete, title: 'Remove product from the basket' do
+                i.fa.fa-trash.btn-xs
   div class="card"
     div class="card-body"
       h5 = 'Total prize: '+@basket.total_prize.to_s
