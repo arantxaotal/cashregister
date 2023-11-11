@@ -10,4 +10,8 @@ module BasketDomain
   def amount_prize(product_basket)
     product_basket.amount * product_basket.product.prize if product_basket.amount
   end
+
+  def remove_product_amount(product_basket)
+    product_basket.basket.total_prize-(product_basket.amount*product_basket.product.prize)
+  end
 end

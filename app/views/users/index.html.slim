@@ -59,10 +59,10 @@ div  style="overflow: auto; height: 300px;"
           td = product_basket.product.name
           td = BasketDomain.amount_prize(product_basket)
           td = product_basket.amount
-          td = link_to product_basket, data: { confirm: 'Are you sure?' }, method: :delete, title: 'Remove product from the basket' do
-                i.fa.fa-trash.btn-xs
+          td = link_to product_basket_product_basket_delete_path(product_basket.id),  title: 'Remove product from the basket' do
+               i.fa.fa-trash.btn-xs
   div class="card"
     div class="card-body"
-      h5 = 'Total prize: '+@basket.total_prize.to_s
+      h5 = 'Total prize: '+@basket.total_prize.to_s+'€'
 div class="form-outline mb-4"
   = link_to 'Log Out', user_session_path(current_user), class: 'btn btn-primary'
