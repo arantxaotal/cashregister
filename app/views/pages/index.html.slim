@@ -1,0 +1,15 @@
+html class="text-center pt-1 mb-5 pb-1"
+  head
+    title = 'Cash Register'
+  body
+    h1 = 'Cash Register'
+    row
+      col
+        p = 'App that register your products in basket'
+    div
+      = link_to "Log In", log_in_user_sessions_path,   class: "btn btn-primary"
+
+    div = link_to 'Register',  new_user_session_path
+
+
+    // añadir enter to secret page => tap beer show
