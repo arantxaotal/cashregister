@@ -34,7 +34,7 @@ div class="form-outline mb-4" style="overflow: auto; height: 300px;"
           td = product.try(:prize)
           div = form_for @basket, url: edit_basket_path(@basket.id),method:'GET', html: { multipart: true }, authenticity_token: true, remote: true do |f|
             = hidden_field_tag :product_id, product.id
-            td = number_field_tag :amount,  ProductBasket.where(basket_id:@basket.id,product_id:product.id).take.try(:amount), id:'amount_of_product_'+product.id.to_s
+            td = number_field_tag :amount,  ProductBasket.where(basket_id:@basket.id,product_id:product.id).take.try(:amount), min:0, step: 1,id:'amount_of_product_'+product.id.to_s
             td = button_tag type: :submit, class: 'btn btn-primary', title: "Add to basket" do
                  = fa_icon 'plus'
 
